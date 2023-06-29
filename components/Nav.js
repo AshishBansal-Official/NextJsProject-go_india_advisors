@@ -10,7 +10,7 @@ const Nav = () => {
                     alt="GIA"
                     width={70}
                     height={40}
-                    className="min-w-[70px]"
+                    className="max-h-10 min-w-[70px]"
                 />
             </div>
             {/* Search */}

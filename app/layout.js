@@ -10,9 +10,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body suppressHydrationWarning={true}>
-                <main className="app">
+                <main className="app flex flex-col">
                     <Nav />
-                    {children}
+                    <div className="flex-grow flex flex-col">{children}</div>
                 </main>
             </body>
         </html>

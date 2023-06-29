@@ -22,10 +22,9 @@ const FeaturedCompanies = () => {
                         <Image
                             src={company_logo_url}
                             alt=""
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            className="w-32 max-h-10 min-h-[2.5rem]"
+                            width={130}
+                            height={40}
+                            className="max-h-10 min-h-[2.5rem] max-w-[10rem]"
                         />
                     );
                 })}

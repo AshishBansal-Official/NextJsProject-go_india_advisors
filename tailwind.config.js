@@ -9,6 +9,8 @@ module.exports = {
         extend: {
             colors: {
                 "search-bg": "#e0e1e1",
+                "app-dark-blue": "#041c44",
+                "app-light-blue": "#153b63",
             },
             keyframes: {
                 marquee1: {
