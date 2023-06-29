@@ -10,6 +10,23 @@ module.exports = {
             colors: {
                 "search-bg": "#e0e1e1",
             },
+            keyframes: {
+                marquee1: {
+                    "0%": { transform: "translateX(0%)" },
+                    "50%": { transform: "translateX(-100%)" },
+                    "51%": { transform: "translateX(100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
+                marquee2: {
+                    "0%": { transform: "translateX(0%)", opacity: 1 },
+                    "50%": { transform: "translateX(-100%)", opacity: 1 },
+                    "100%": { transform: "translateX(-200%)", opacity: 1 },
+                },
+            },
+            animation: {
+                marquee1: "marquee1 30s linear infinite",
+                marquee2: "marquee2 30s linear infinite",
+            },
         },
     },
     plugins: [],

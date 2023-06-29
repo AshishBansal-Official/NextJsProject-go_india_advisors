@@ -14,9 +14,10 @@ const Nav = () => {
                 />
             </div>
             {/* Search */}
-            <div className="flex-grow flex-center mx-4 md:ml-12 md:mr-40">
-                <input className="rounded-l-md h-10 pl-4 text-sm bg-search-bg font-normal focus:outline-none w-full" />
-                <div className="bg-search-bg rounded-r-md h-10 px-2 flex-center">
+            <div className="relative flex-grow flex-center rounded-md mx-4 md:ml-12 md:mr-40 ">
+                <input className="rounded-md h-10 pl-4 pr-10 text-sm bg-search-bg font-normal focus:outline-none w-full shadow-[inset_0_1px_4px_rgba(0,0,0,0.6)]" />
+                {/* Search Icon */}
+                <div className="absolute right-0 rounded-r-md p-2">
                     <Image
                         src="/assets/icons/search-icon.svg"
                         alt="search"
