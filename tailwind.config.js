@@ -18,9 +18,9 @@ module.exports = {
                     "100%": { transform: "translateX(0%)" },
                 },
                 marquee2: {
-                    "0%": { transform: "translateX(0%)", opacity: 1 },
-                    "50%": { transform: "translateX(-100%)", opacity: 1 },
-                    "100%": { transform: "translateX(-200%)", opacity: 1 },
+                    "0%": { transform: "translateX(0%)" },
+                    "50%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(-200%)" },
                 },
             },
             animation: {

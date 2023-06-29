@@ -59,7 +59,7 @@ const Banner = () => {
                     {data?.map((bank) => {
                         return (
                             <div className="flex-center gap-4 whitespace-nowrap">
-                                <span>{bank.name}</span>
+                                <span className="uppercase">{bank.name}</span>
                                 <span>
                                     {Intl.NumberFormat("en-IN").format(
                                         bank.value
@@ -80,11 +80,11 @@ const Banner = () => {
                         );
                     })}
                 </div>
-                <div className=" flex-center opacity-0 bg-black gap-4 h-full animate-marquee2">
+                <div className=" flex-center bg-black gap-4 h-full animate-marquee2">
                     {data?.map((bank) => {
                         return (
                             <div className="flex-center gap-4 whitespace-nowrap">
-                                <span>{bank.name}</span>
+                                <span className="uppercase">{bank.name}</span>
                                 <span>
                                     {Intl.NumberFormat("en-IN").format(
                                         bank.value

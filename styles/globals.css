@@ -8,6 +8,12 @@
     overflow-x: hidden;
 }
 
+/* HomePage */
+
+.home-header {
+    @apply text-2xl text-rose-600 font-semibold uppercase;
+}
+
 .outline_btn {
     @apply border border-black rounded-sm bg-transparent py-2 px-2 sm:px-5 text-black text-center text-xs font-semibold flex-center whitespace-nowrap cursor-pointer uppercase  transition-all hover:bg-black hover:text-white;
 }
