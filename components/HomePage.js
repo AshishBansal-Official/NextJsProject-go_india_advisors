@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import PostCard from "./PostCard";
 
 const data = [
     {
@@ -92,13 +93,72 @@ const HomePage = () => {
     return (
         <div className="h-full w-full">
             <div className="flex h-full">
-                {/* Discussion Fourm */}
+                {/* Discussion Forum */}
                 <div className="2xl:min-w-[50rem] xl:min-w-[40rem] lg:min-w-[30rem] md:min-w-[25rem] min-w-[20rem] h-full px-6  flex flex-col">
-                    <h1 className="home-header py-4">Discussion Fourm</h1>
+                    <h1 className="home-header pt-4">Discussion Forum</h1>
+                    <div className="relative lg:px-16 px-4">
+                        <h2 className="h-8 text-xl font-semibold">Filters</h2>
+                        <div className="flex-center flex-col xl:flex-row bg-white shadow-[2px_4px_3px_rgba(0,0,0,0.38)] rounded-lg p-4 gap-2 xl:gap-4 whitespace-nowrap">
+                            <div className="flex-center gap-2 xl:gap-4">
+                                <div className="sector-button bg-rose-700">
+                                    Sector 1
+                                </div>
+                                <div className="sector-button bg-blue-800">
+                                    Sector 2
+                                </div>
+                                <div className="sector-button bg-yellow-500">
+                                    Sector 3
+                                </div>
+                            </div>
+                            <div className="relative flex-center rounded-full">
+                                <input
+                                    placeholder="Search Here"
+                                    className="rounded-full h-8 pr-4 pl-8 text-sm bg-search-bg font-normal focus:outline-none w-full shadow-[inset_0_1px_4px_rgba(0,0,0,0.6)]"
+                                />
+                                {/* Search Icon */}
+                                <div className="absolute left-0 rounded-r-full p-2">
+                                    <Image
+                                        src="/assets/icons/search-icon.svg"
+                                        alt="search"
+                                        width={16}
+                                        height={16}
+                                        className="cursor-pointer min-w-[20px]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        {/* Posts */}
+                        <div>
+                            <PostCard
+                                imageUrl={"/assets/images/post-image.png"}
+                                name={"Lorem Ipsum"}
+                                desc={
+                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is"
+                                }
+                                sector={1}
+                                likes={"2k"}
+                                views={"2k"}
+                                comments={"2k"}
+                                timestamp={"2 mins ago"}
+                            />
+                            <PostCard
+                                name={"Lorem Ipsum"}
+                                desc={
+                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is"
+                                }
+                                sector={1}
+                                likes={"2k"}
+                                views={"2k"}
+                                comments={"2k"}
+                                timestamp={"2 mins ago"}
+                            />
+                        </div>
+                    </div>
                 </div>
+                {/* Market Stories */}
                 <div className="flex flex-col   ">
                     <h1 className="home-header py-4">Market Stories</h1>
-                    <div className="h-full overflow-y-scroll hide-scrollbar">
+                    <div className="h-full mt-4 overflow-y-scroll hide-scrollbar">
                         <div className="flex flex-wrap gap-y-6 gap-x-1 lg:gap-x-10 mb-6">
                             {data?.map((story, i) => {
                                 return (
