@@ -5,17 +5,18 @@ import SidebarTile from "./SidebarTile";
 import { useState } from "react";
 
 const Sidebar = ({ classname }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
         <div
-            className={`${classname} relative w-64 bg-app-light-blue text-white ${
-                isOpen ? "w-64" : "w-0"
+            className={`${classname} fixed lg:relative min-h-[calc(100vh-4.8rem)] lg:min-h-[calc(100vh-11.75rem)] top-[4.75rem] lg:top-0 min-w-[13rem] lg:min-w-[16rem]  bg-app-light-blue text-white ${
+                isSidebarOpen
+                    ? "left-0 md:margin-l-0"
+                    : "-left-[13rem] lg:left-0 lg:-ml-64"
             }`}
         >
             {/* Sidebar Toggle Button */}
             <div
-                onClick={() => setIsOpen((prev) => !prev)}
+                onClick={() => setIsSidebarOpen((prev) => !prev)}
                 className="absolute top-1/2 left-full -translate-y-1/2 bg-app-light-blue rounded-r-md cursor-pointer"
             >
                 <div className="h-16 w-4 flex-center">
@@ -27,7 +28,7 @@ const Sidebar = ({ classname }) => {
                     />
                 </div>
             </div>
-            <div className={`${isOpen ? "" : "hidden"}`}>
+            <div>
                 {/* Header */}
                 <div className="flex p-4 justify-between">
                     <div className="flex">

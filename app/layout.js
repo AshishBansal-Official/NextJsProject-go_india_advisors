@@ -1,5 +1,6 @@
 import "@styles/globals.css";
 import Nav from "@components/Nav";
+import Banner from "@components/Banner";
 
 export const metadata = {
     title: "Go India Advisors",
@@ -10,9 +11,14 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body suppressHydrationWarning={true}>
-                <main className="app flex flex-col">
-                    <Nav />
-                    <div className="flex-grow flex flex-col">{children}</div>
+                <main className="h-screen w-screen flex flex-col overflow-x-hidden">
+                    <div>
+                        <Nav />
+                        <Banner />
+                    </div>
+                    <div className="relative max-h-[calc(100vh-4.75rem)] h-[calc(100vh-4.75rem)]">
+                        {children}
+                    </div>
                 </main>
             </body>
         </html>

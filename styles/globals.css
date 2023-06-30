@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.app {
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
 /* HomePage */
 
 .home-header {

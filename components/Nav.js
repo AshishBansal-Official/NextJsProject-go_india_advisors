@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Nav = () => {
     return (
-        <nav className="flex-between w-full py-2 px-4">
+        <nav className="h-14 flex-between w-full py-2 px-4">
             {/* Logo */}
             <div className="cursor-pointer">
                 <Image

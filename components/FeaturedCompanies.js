@@ -14,8 +14,10 @@ const data = [
 
 const FeaturedCompanies = () => {
     return (
-        <div>
-            <div className="home-header px-6 py-2">Featured Companies</div>
+        <div className="md:h-28">
+            <h1 className="md:block hidden home-header px-6 py-2">
+                Featured Companies
+            </h1>
             <div className="relative p-2 h-16 flex-center bg-sky-100 flex gap-6">
                 {data.map((company_logo_url) => {
                     return (
