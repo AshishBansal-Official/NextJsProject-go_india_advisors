@@ -6,9 +6,11 @@ import { useState } from "react";
 
 const Sidebar = ({ classname }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [selected, setSelected] = useState("discussion_forum");
+
     return (
         <div
-            className={`${classname} z-10 fixed lg:relative min-h-[calc(100vh-4.8rem)] lg:min-h-[calc(100vh-11.75rem)] top-[4.75rem] lg:top-0 min-w-[13rem] lg:min-w-[16rem]  bg-app-light-blue text-white ${
+            className={`${classname} z-20 fixed lg:relative min-h-[calc(100vh-4.8rem)] lg:min-h-[calc(100vh-11.75rem)] top-[4.75rem] lg:top-0 min-w-[13rem] lg:min-w-[16rem]  bg-app-light-blue text-white ${
                 isSidebarOpen
                     ? "left-0 md:margin-l-0"
                     : "-left-[13rem] lg:left-0 lg:-ml-64"
@@ -30,7 +32,7 @@ const Sidebar = ({ classname }) => {
             </div>
             <div>
                 {/* Header */}
-                <div className="flex p-4 justify-between">
+                <div className="flex px-4 py-5 justify-between">
                     <div className="flex">
                         <Image
                             src="/assets/icons/sidebar/user.svg"
@@ -40,18 +42,23 @@ const Sidebar = ({ classname }) => {
                         />
                         <span className="ml-2">Hello, User</span>
                     </div>
-                    <Image
-                        src="/assets/icons/sidebar/notification.svg"
-                        alt=""
-                        width={24}
-                        height={24}
-                    />
+                    <div className="relative">
+                        <Image
+                            src="/assets/icons/sidebar/notification.svg"
+                            alt=""
+                            width={24}
+                            height={24}
+                        />
+                        <div className="absolute h-1.5 w-1.5 rounded-full top-1 right-0.5 bg-red-500"></div>
+                    </div>
                 </div>
                 <div className="h-0.5 mb-2 bg-white/10"></div>
+                <div className="h-7 md:hidden"></div>
                 {/* Sidebar Sections */}
                 <SidebarTile
                     title="Discussion Forum"
                     iconUrl="/assets/icons/sidebar/discussion_form.svg"
+                    selected={selected === "discussion_forum"}
                 />
                 <SidebarTile
                     title="Market Stories"

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Nav = () => {
     return (
-        <nav className="h-14 flex-between w-full py-2 px-2 md:px-4 ">
+        <nav className="z-50 h-14 flex-between w-full py-2 px-2 md:px-4 ">
             {/* Logo */}
             <div className="cursor-pointer">
                 <Image
@@ -21,15 +21,16 @@ const Nav = () => {
                     <Image
                         src="/assets/icons/search-icon.svg"
                         alt="search"
-                        width={25}
-                        height={25}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
                         className="cursor-pointer min-w-[25px]"
                     />
                 </div>
             </div>
             {/* End */}
             <div className="flex gap-2 sm:gap-4">
-                <div className="flex-center text-xs font-semibold cursor-pointer whitespace-nowrap">
+                <div className="flex-center text-xs font-semibold cursor-pointer text-center">
                     Contact Us
                 </div>
                 <div className="outline_btn">SIGN UP</div>
