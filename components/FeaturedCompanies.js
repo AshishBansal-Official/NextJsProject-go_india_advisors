@@ -21,13 +21,16 @@ const FeaturedCompanies = () => {
             <div className="relative p-2 h-16 flex-center bg-sky-100 flex gap-6">
                 {data.map((company_logo_url) => {
                     return (
-                        <Image
-                            src={company_logo_url}
-                            alt=""
-                            width={130}
-                            height={40}
-                            className="max-h-10 min-h-[2.5rem] max-w-[10rem]"
-                        />
+                        <div>
+                            <Image
+                                src={company_logo_url}
+                                alt=""
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                className="md:max-h-10 md:min-h-[2.5rem] w-full md:min-w-[8rem] md:max-w-[10rem]"
+                            />
+                        </div>
                     );
                 })}
             </div>

@@ -13,7 +13,7 @@ const PostCard = ({
     imageUrl,
 }) => {
     return (
-        <div className="flex flex-col my-4 bg-white shadow-[2px_4px_3px_rgba(0,0,0,0.38)] rounded-lg px-4 py-2 gap-2">
+        <div className="flex flex-col mb-4 bg-white shadow-[2px_4px_3px_rgba(0,0,0,0.38)] rounded-lg px-4 py-2 gap-2">
             {/* Image */}
             {imageUrl && (
                 <div className="text-xs text-blue-500 font-semibold whitespace-nowrap text-end">

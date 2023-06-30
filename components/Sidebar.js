@@ -8,7 +8,7 @@ const Sidebar = ({ classname }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
         <div
-            className={`${classname} fixed lg:relative min-h-[calc(100vh-4.8rem)] lg:min-h-[calc(100vh-11.75rem)] top-[4.75rem] lg:top-0 min-w-[13rem] lg:min-w-[16rem]  bg-app-light-blue text-white ${
+            className={`${classname} z-10 fixed lg:relative min-h-[calc(100vh-4.8rem)] lg:min-h-[calc(100vh-11.75rem)] top-[4.75rem] lg:top-0 min-w-[13rem] lg:min-w-[16rem]  bg-app-light-blue text-white ${
                 isSidebarOpen
                     ? "left-0 md:margin-l-0"
                     : "-left-[13rem] lg:left-0 lg:-ml-64"
