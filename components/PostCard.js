@@ -23,6 +23,7 @@ const PostCard = ({
             {imageUrl && (
                 <div className="flex-center">
                     <Image
+                        priority={true}
                         src={imageUrl}
                         alt="post"
                         width={0}

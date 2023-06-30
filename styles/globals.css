@@ -38,7 +38,7 @@
 }
 
 .sector-button {
-    @apply h-7 px-2 md:px-4 flex-center rounded-full text-white text-sm whitespace-nowrap;
+    @apply h-7 px-2 lg:px-4 flex-center rounded-full text-white text-sm whitespace-nowrap;
 }
 
 .outline_btn {

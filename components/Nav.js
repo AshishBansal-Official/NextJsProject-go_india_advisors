@@ -8,6 +8,7 @@ const Nav = () => {
                 <Image
                     src="/assets/images/logo.webp"
                     alt="GIA"
+                    priority={true}
                     width={70}
                     height={40}
                     className="max-h-10 min-w-[70px]"

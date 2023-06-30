@@ -1,119 +1,29 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import PostCard from "./PostCard";
 
-const data = [
-    {
-        imageUrl: "/assets/images/post-image.png",
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        imageUrl: "/assets/images/post-image.png",
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        imageUrl: "/assets/images/post-image.png",
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        imageUrl: "/assets/images/post-image.png",
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        imageUrl: "/assets/images/post-image.png",
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-    {
-        name: "Lorem Ipsum",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is",
-        sector: 1,
-        likes: "2k",
-        views: "2k",
-        comments: "2k",
-        timestamp: "2 mins ago",
-    },
-];
-
 const DiscussionForum = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("/api/discussion-forum");
+            const result = await response.json();
+            setData(result);
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="relative mt-2 md:mt-0 xl:px-16 pl-6 pr-4 md:px-4 h-[calc(100%-3.5rem)]">
             <h2 className="h-8 text-xl font-semibold">Filters</h2>
-            <div className="h-16 flex-center xl:flex-row bg-white shadow-[2px_4px_3px_rgba(0,0,0,0.38)] rounded-lg py-4 px-2 md:p-4 gap-2 md:gap-1 xl:gap-4 whitespace-nowrap">
+            <div className="h-16 flex-center xl:flex-row bg-white shadow-[2px_4px_3px_rgba(0,0,0,0.38)] rounded-lg py-4 px-2 lg:p-4 gap-2 md:gap-1 xl:gap-4 whitespace-nowrap">
                 <div className="flex-center gap-1 md:gap-0.5 xl:gap-4">
-                    <div className="sector-button bg-rose-700 px-2 lg:px-4">
-                        Sector 1
-                    </div>
-                    <div className="sector-button bg-blue-800 px-2 lg:px-4">
-                        Sector 2
-                    </div>
-                    <div className="sector-button bg-yellow-500 px-2 lg:px-4">
-                        Sector 3
-                    </div>
+                    <div className="sector-button bg-rose-700">Sector 1</div>
+                    <div className="sector-button bg-blue-800">Sector 2</div>
+                    <div className="sector-button bg-yellow-500">Sector 3</div>
                 </div>
                 <div className="relative flex-center rounded-full flex-grow">
                     <input
@@ -134,9 +44,10 @@ const DiscussionForum = () => {
             </div>
             {/* Posts */}
             <div className="flex-grow w-full h-[calc(100%-7rem)] mt-4 md:pr-2 md:overflow-y-scroll hide-scrollbar-desktop app-scrollbar">
-                {data?.map((post) => {
+                {data?.map((post, index) => {
                     return (
                         <PostCard
+                            key={index}
                             imageUrl={post.imageUrl}
                             name={post.name}
                             desc={post.desc}
