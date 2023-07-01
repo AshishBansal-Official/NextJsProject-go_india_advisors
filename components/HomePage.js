@@ -1,12 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DiscussionForum from "./DiscussionForum";
 import MarketStories from "./MarketStories";
 import Image from "next/image";
 
 const HomePage = () => {
     const [selected, setSelected] = useState("discussion_forum");
+    const [discussionData, setDiscussionData] = useState([]);
+    const [storiesData, setStoriesData] = useState([]);
+
+    const fetchDiscussionData = async () => {
+        const response = await fetch("/api/discussion-forum");
+        const result = await response.json();
+        setDiscussionData(result);
+    };
+
+    const fetchStoriesData = async () => {
+        const response = await fetch("/api/market-stories");
+        const result = await response.json();
+        setStoriesData(result);
+    };
+
+    useEffect(() => {
+        const fetchData = () => {
+            fetchDiscussionData();
+            fetchStoriesData();
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="h-full w-full ">
             {/* Desktop View */}
@@ -14,12 +37,12 @@ const HomePage = () => {
                 {/* Discussion Forum */}
                 <div className="2xl:min-w-[50rem] xl:min-w-[40rem] lg:min-w-[30rem] md:min-w-[25rem] min-w-[20rem] px-6 flex flex-col">
                     <h1 className="home-header pt-4 h-14">Discussion Forum</h1>
-                    <DiscussionForum />
+                    <DiscussionForum data={discussionData} />
                 </div>
                 {/* Market Stories */}
                 <div className="flex flex-col">
                     <h1 className="home-header py-4">Market Stories</h1>
-                    <MarketStories />
+                    <MarketStories data={storiesData} />
                 </div>
             </div>
 
@@ -49,9 +72,9 @@ const HomePage = () => {
                 </div>
                 <div>
                     {selected === "discussion_forum" ? (
-                        <DiscussionForum />
+                        <DiscussionForum data={discussionData} />
                     ) : (
-                        <MarketStories />
+                        <MarketStories data={storiesData} />
                     )}
                 </div>
                 {/* Space for the bottom navigation bar */}

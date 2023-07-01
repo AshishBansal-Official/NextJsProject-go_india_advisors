@@ -29,7 +29,7 @@ const PostCard = ({
                         width={0}
                         height={0}
                         sizes="100vw"
-                        className="max-h-40 h-40 w-4/5 object-fill"
+                        className="h-auto max-h-25 w-4/5 md:h-40 md:w-auto object-fill"
                     />
                 </div>
             )}

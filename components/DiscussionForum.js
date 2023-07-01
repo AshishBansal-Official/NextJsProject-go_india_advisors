@@ -1,21 +1,7 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import PostCard from "./PostCard";
 
-const DiscussionForum = () => {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch("/api/discussion-forum");
-            const result = await response.json();
-            setData(result);
-        };
-        fetchData();
-    }, []);
-
+const DiscussionForum = ({ data }) => {
     return (
         <div className="relative mt-2 md:mt-0 xl:px-16 pl-6 pr-4 md:px-4 h-[calc(100%-3.5rem)]">
             <h2 className="h-8 text-xl font-semibold">Filters</h2>
@@ -44,21 +30,27 @@ const DiscussionForum = () => {
             </div>
             {/* Posts */}
             <div className="flex-grow w-full h-[calc(100%-7rem)] mt-4 md:pr-2 md:overflow-y-scroll hide-scrollbar-desktop app-scrollbar">
-                {data?.map((post, index) => {
-                    return (
-                        <PostCard
-                            key={index}
-                            imageUrl={post.imageUrl}
-                            name={post.name}
-                            desc={post.desc}
-                            sector={post.sector}
-                            likes={post.likes}
-                            views={post.views}
-                            comments={post.comments}
-                            timestamp={post.timestamp}
-                        />
-                    );
-                })}
+                {data?.length === 0 ? (
+                    <div className="flex-center">
+                        <div className="loader"></div>
+                    </div>
+                ) : (
+                    data?.map((post, index) => {
+                        return (
+                            <PostCard
+                                key={index}
+                                imageUrl={post.imageUrl}
+                                name={post.name}
+                                desc={post.desc}
+                                sector={post.sector}
+                                likes={post.likes}
+                                views={post.views}
+                                comments={post.comments}
+                                timestamp={post.timestamp}
+                            />
+                        );
+                    })
+                )}
             </div>
         </div>
     );
