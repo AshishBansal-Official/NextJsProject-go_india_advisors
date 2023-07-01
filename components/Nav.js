@@ -30,12 +30,20 @@ const Nav = () => {
                 </div>
             </div>
             {/* End */}
-            <div className="flex gap-2 sm:gap-4">
+            <div className="hidden md:flex gap-2 sm:gap-4">
                 <div className="flex-center text-xs font-semibold cursor-pointer text-center">
                     Contact Us
                 </div>
                 <div className="outline_btn">SIGN UP</div>
                 <div className="outline_btn">SIGN IN</div>
+            </div>
+            <div className="md:hidden">
+                <Image
+                    src="/assets/icons/login-user-icon.png"
+                    alt=""
+                    width={36}
+                    height={36}
+                />
             </div>
         </nav>
     );
